@@ -1,0 +1,64 @@
+<!-- Begin Li's Breadcrumb Area -->
+            <div class="breadcrumb-area">
+                <div class="container">
+                    <div class="breadcrumb-content">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li class="active">Wishlist</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Li's Breadcrumb Area End Here -->
+            <!--Wishlist Area Strat-->
+            <div class="wishlist-area pt-60 pb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            {{#if listProducts}}
+                            <form action="#">
+                                <div class="table-content table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="li-product-remove">remove</th>
+                                                <th class="li-product-thumbnail">images</th>
+                                                <th class="cart-product-name">Product</th>
+                                                <th class="li-product-price">Unit Price</th>
+                                                {{!-- <th class="li-product-stock-status">Stock Status</th> --}}
+                                                <th class="li-product-add-cart">add to cart</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each listProducts}}
+                                            <tr>
+                                                <td style="border:none;cursor: pointer;" class="li-product-remove"><a><i
+                                                        class="fa fa-trash"
+                                                        style="font-size: large;"
+                                                        onclick="removeListItem('{{../user._id}}','{{this._id}}')"
+                                                    ></i></a></td>
+                                                <td class="li-product-thumbnail"><a href="/single-product/{{this._id}}"><img src="/images/product/{{this.category}}/{{this._id}}/0.jpg" alt="" style="height: 90px;"></a></td>
+                                                <td class="li-product-name"><a href="/single-product/{{this._id}}">{{this.name}}</a></td>
+                                                <td class="li-product-price"><span class="amount">₹ {{this.price}}</span></td>
+                                                {{!-- <td class="li-product-stock-status"><span class="in-stock">{{status}}</span></td> --}}
+                                                <td class="li-product-add-cart"><a style="cursor: pointer;" onclick="addToCart('{{this._id}}','{{this.category}}');removeListItem('{{../user._id}}','{{this._id}}')">add to cart</a></td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                    
+                                </div>
+                            </form>
+                            {{else}}
+                            <div class="container" style="text-align: center;margin-bottom:80px;">
+                                <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/mywishlist-empty_39f7a5.png" alt="" style="width: 300px;height: 200px;" />
+                                <h1 style="font-size: 24px;margin-top: 8px;">Empty List </h1>
+                                <p style="font-size:18px;">You have no items in your wishlist. Start adding!</p>
+                                {{!-- <a href="/login-register" class="btn btn-md btn-outline-warning text-warning" id="onhover">Login</a> --}}
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Wishlist Area End-->

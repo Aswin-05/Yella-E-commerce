@@ -1,0 +1,52 @@
+<style>
+    
+</style>
+
+
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-center">Add Product</h2>
+                <form action="/admin/add-product" method="post" enctype="multipart/form-data" id="addProducts">
+
+                    <label class="mt-4" for="name">Name</label>
+                    <input type="text" name="name" id="name" class="form-control" />
+
+                    <label class="mt-4" for="category">Category</label>
+                    <select name="category" id="category">
+                        <option value="">Choose</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="tv & audio">TV & Audio</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="smart device">Smart Devices</option>
+                        <option value="cosmetics">Cosmetics</option>
+                    </select>
+
+                    <label class="mt-4" for="price">Price</label>
+                    <input type="text" name="price" id="price" class="form-control" />
+
+                    <label class="mt-4" for="manufacture">Manufacture</label>
+                    <input type="text" name="manufacture" id="manufacture" class="form-control" />
+
+                    <label class="mt-4" for="rating">Rating</label>
+                    <input type="text" name="rating" id="rating" class="form-control" />
+
+                     <label class="mt-4" for="tags">Tags</label>
+                    <input type="text" name="tags" id="tags" class="form-control" />
+
+                    <label class="mt-4" for="image">Image</label>
+                    <input type="file" name="image" id="image" class="form-control" multiple="multiple" />
+
+                    <label class="mt-4" for="key_features">Key Features</label>
+                    <textarea class="form-control" id="key_features" name="key_features" rows="3"></textarea>
+
+                    <label class="mt-4" for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+
+                    <button type="submit" class="btn btn-outline-warning mt-4 mb-4">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

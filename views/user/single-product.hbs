@@ -1,0 +1,345 @@
+<style>
+    .wish {
+        color: #a4a4a4 !important;
+        transition: 0.3s ease-in-out !important;
+    }
+
+    .wish:hover {
+        color: #fed700 !important;
+        cursor: pointer !important;
+    }
+
+    .wish:focus,
+    .wish:hover {
+        color: #fed700 !important;
+        text-decoration: none !important;
+    }
+</style>
+
+<!-- Begin Li's Breadcrumb Area -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="active">{{product.manufacture}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!-- content-wraper start -->
+<div class="content-wraper">
+    <div class="container">
+        <div class="row single-product-area">
+            <div class="col-lg-5 col-md-6">
+                <!-- Product Details Left -->
+                <div class="product-details-left pt-60">
+                    <div class="product-details-thumbs slider-thumbs-1">
+                        <div class="sm-image"><img src="/images/product/{{product.category}}/{{product._id}}/0.jpg"
+                                alt="product image thumb" /></div>
+                        <div class="sm-image"><img src="/images/product/{{product.category}}/{{product._id}}/1.jpg"
+                                alt="product image thumb" /></div>
+                        <div class="sm-image"><img src="/images/product/{{product.category}}/{{product._id}}/2.jpg"
+                                alt="product image thumb" /></div>
+                        <div class="sm-image"><img src="/images/product/{{product.category}}/{{product._id}}/3.jpg"
+                                alt="product image thumb" /></div>
+                        <div class="sm-image"><img src="/images/product/{{product.category}}/{{product._id}}/4.jpg"
+                                alt="product image thumb" /></div>
+                    </div>
+                    <div class="product-details-images slider-navigation-1">
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item"
+                                href="/images/product/{{product.category}}/{{product._id}}/0.jpg" data-gall="myGallery">
+                                <img src="/images/product/{{product.category}}/{{product._id}}/0.jpg"
+                                    alt="product image" />
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item"
+                                href="/images/product/{{product.category}}/{{product._id}}/1.jpg" data-gall="myGallery">
+                                <img src="/images/product/{{product.category}}/{{product._id}}/1.jpg"
+                                    alt="product image" />
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item"
+                                href="/images/product/{{product.category}}/{{product._id}}/2.jpg" data-gall="myGallery">
+                                <img src="/images/product/{{product.category}}/{{product._id}}/2.jpg"
+                                    alt="product image" />
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item"
+                                href="/images/product/{{product.category}}/{{product._id}}/3.jpg" data-gall="myGallery">
+                                <img src="/images/product/{{product.category}}/{{product._id}}/3.jpg"
+                                    alt="product image" />
+                            </a>
+
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item"
+                                href="/images/product/{{product.category}}/{{product._id}}/4.jpg" data-gall="myGallery">
+                                <img src="/images/product/{{product.category}}/{{product._id}}/4.jpg"
+                                    alt="product image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--// Product Details Left -->
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="product-details-view-content pt-60">
+                    <div class="product-info">
+                        <h2>{{product.name}}</h2>
+                        <span class="product-details-ref">{{product.manufacture}}</span>
+                        <div class="rating-box pt-20">
+                            <ul class="rating rating-with-review-item">
+                                <span class="text-muted">{{product.rating}}</span>
+                            </ul>
+                        </div>
+                        <div class="price-box pt-20">
+                            <span class="new-price new-price-2">₹ {{product.price}}</span>
+                        </div>
+                        <div class="keyfeature text-muted mb-4">
+                            <label>Key Features</label>
+                            <ul>
+                                {{#each product.key_features}}
+                                <li>{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div class="product-desc">
+                            <h6 class="text-muted">Description</h6>
+                            <p>
+                                <span>{{product.description}}</span>
+                            </p>
+                        </div>
+                        <div class="single-add-to-cart">
+                            <div class="cart-quantity">
+                                <button class="add-to-cart"
+                                    onclick="addToCart('{{product._id}}','{{product.name}}')">Add to cart</button>
+                            </div>
+                        </div>
+                        <div class="product-additional-info pt-25">
+                            <a class="wishlist-btn wish" onclick="addToList('{{product._id}}','{{product.name}}')"><i
+                                    class="fa fa-heart-o"></i>Add to wishlist</a>
+                        </div>
+                        <div class="block-reassurance">
+                            <ul>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                        </div>
+                                        <p>Security policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <p>Delivery policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-exchange"></i>
+                                        </div>
+                                        <p> Return policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content-wraper end -->
+<!-- Begin Product Area -->
+<div class="product-area pt-35">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="li-product-tab">
+                    <ul class="nav li-product-menu">
+                        <li><a class="active" data-toggle="tab" href="#description"><span>Description</span></a></li>
+                        {{! <li><a data-toggle="tab" href="#product-details"><span>Product Details</span></a></li> }}
+                        <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
+                    </ul>
+                </div>
+                <!-- Begin Li's Tab Menu Content Area -->
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="description" class="tab-pane active show" role="tabpanel">
+                <div class="product-description">
+                    <span>{{product.description}}</span>
+                </div>
+            </div>
+            <div id="reviews" class="tab-pane" role="tabpanel">
+                <div class="product-reviews">
+                    <div class="product-details-comment-block">
+                        <div class="review-btn">
+                            <li class="review-item"><a class="wish" onclick="reviewModal()">Write Review</a></li>
+                        </div>
+                        <div id="reviews">
+                            {{#each reviews}}
+                            <div class="comment-details">
+                                <h4 class="title-block">{{this.name}}</h4>
+                                <p style="margin-bottom: 2px;">{{this.comment}}</p>
+                                <p>{{this.rating}}</p>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Area End Here -->
+<section class="product-area li-laptop-product pt-30 pb-50">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Li's Section Area -->
+            <div class="col-lg-12">
+                <div class="li-section-title">
+                    <h2>
+                        <span>Related Products</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="product-active owl-carousel">
+                    {{#each related}}
+                    <div class="col-lg-12">
+                        <!-- single-product-wrap start -->
+                        <div class="single-product-wrap">
+                            <div class="product-image">
+                                <a href="/single-product/{{this._id}}">
+                                    <img src="/images/product/{{this.category}}/{{this._id}}/0.jpg"
+                                        alt="Li's Product Image" />
+                                </a>
+                            </div>
+                            <div class="product_desc">
+                                <div class="product_desc_info">
+                                    <div class="product-review">
+                                        <h5 class="manufacturer">
+                                            <a>{{this.manufacture}}</a>
+                                        </h5>
+                                        <div class="rating-box">
+                                            <p>{{this.rating}}</p>
+                                        </div>
+                                    </div>
+                                    <h4><a class="product_name" href="/single-product/{{this._id}}">{{this.name}}...</a>
+                                    </h4>
+                                    <div class="price-box">
+                                        <span class="new-price">₹ {{this.price}}</span>
+                                    </div>
+                                </div>
+                                <div class="add-actions">
+                                    <ul class="add-actions-link">
+                                        <li class="add-cart active"><a
+                                                onclick="addToCart('{{this._id}}','{{this.name}}')">Add to cart</a></li>
+                                        <li><a class="links-details"
+                                                onclick="addToList('{{this._id}}','{{this.name}}')"><i
+                                                    class="fa fa-heart-o"></i></a></li>
+                                        <li><a title="quick view" class="quick-view-btn modal-trigger"
+                                                onclick="openmodal('{{this._id}}')"><i class="fa fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single-product-wrap end -->
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Begin Quick View | Modal Area -->
+<div class="modal fade modal-wrapper" id="reviewModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3 class="review-page-title">Write Your Review</h3>
+                <div class="modal-inner-area row">
+                    <div class="col-lg-6">
+                        <div class="li-review-product">
+                            <img src="/images/product/{{product.category}}/{{product._id}}/0.jpg" alt="Li's Product"
+                                height="250px" />
+                            <div class="li-review-product-desc">
+                                <p class="li-product-name" style="color: grey; font-weight: 500;font-size: medium;">
+                                    {{product.name}}</p>
+                                <p>
+                                    <span>{{product.description}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="li-review-content">
+                            <!-- Begin Feedback Area -->
+                            <div class="feedback-area">
+                                <div class="feedback">
+                                    <h3 class="feedback-title">Feedback</h3>
+                                    <form id="reviewForm">
+                                        <p class="your-opinion">
+                                            <label>Your Rating</label>
+                                            <span>
+                                                <select class="star-rating" name="rating">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </span>
+                                        </p>
+                                        <p class="feedback-form">
+                                            <label for="feedback">Your Review</label>
+                                            <textarea id="feedback" name="comment" cols="45" rows="8"
+                                                aria-required="true"></textarea>
+                                        </p>
+                                        <div class="feedback-input">
+                                            <form action="">
+                                                <p class="feedback-form-author">
+                                                    <label for="author">Name<span class="required">*</span>
+                                                    </label>
+                                                    <input id="author" name="author" size="30" type="text" />
+                                                </p>
+                                                <p class="feedback-form-author feedback-form-email">
+                                                    <label for="email">Email<span class="required">*</span>
+                                                    </label>
+                                                    <input id="email" name="author_email" size="30" type="text" />
+                                                    <span class="required"><sub>*</sub>
+                                                        Required fields</span>
+                                                </p>
+                                                <input type="text" name="prodId" id="" value="{{product._id}}" hidden>
+                                                <div class="feedback-btn pb-15">
+                                                    <a href="#" class="close" data-dismiss="modal"
+                                                        aria-label="Close">Close</a>
+                                                    <a class="cursor" onclick="submitReview()">Submit</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Feedback Area End Here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quick View | Modal Area End Here -->

@@ -1,0 +1,56 @@
+<section>
+    <div class="container">
+        <table class="table mt-5" id="productstable" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Email Id</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each users}}
+                <tr>
+                    <th scope="row">#{{this._id}}</th>
+                    <td>{{this.fname}} {{this.lname}}</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td style="border: none;">{{this.flatNo}}, {{this.area}}</td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">{{this.landmark}}, {{this.pincode}}</td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">{{this.district}}, {{this.state}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                     <td>{{this.email}}</td>
+                    <td>{{this.phone}}</td>
+                    <td style="width: 80px;">
+                        <a href="" class="btn btn-outline-danger btn-sm mt-3"
+                            >Block User</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<script>
+    new DataTable('#productstable', {
+        autoWidth: false,
+        columnDefs: [
+            {
+                targets: ['_all'],
+                className: 'mdc-data-table__cell',
+            },
+        ],
+    });
+</script>

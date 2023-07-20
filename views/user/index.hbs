@@ -1,0 +1,470 @@
+<style>
+    .wish{ color: #a4a4a4 !important; transition: 0.3s ease-in-out !important; } .wish:hover{ color: #fed700 !important;
+    cursor: pointer !important; } .wish:focus, .wish:hover { color: #fed700 !important; text-decoration: none !important; }
+</style>
+
+<!-- Begin Slider With Banner Area -->
+<div class="slider-with-banner" style="margin-top: 20px;">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Slider Area -->
+            <div class="col-lg-8 col-md-8">
+                <div class="slider-area">
+                    <div class="slider-active owl-carousel">
+                        <!-- Begin Single Slide Area -->
+                        <div class="single-slide align-center-left animation-style-01 bg-1">
+                            <div class="slider-progress"></div>
+                            <div class="slider-content">
+                                <h5>Sale Offer <span>20% Off</span> This Week</h5>
+                                <h2>Samsung Galaxy S23 Ultra</h2>
+                                <h3>Starting at <span>₹ 1,20,000</span></h3>
+                                <div class="default-btn slide-btn">
+                                    <a class="links" href="#">Shopping Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Slide Area End Here -->
+                        <!-- Begin Single Slide Area -->
+                        <div class="single-slide align-center-left animation-style-02 bg-2">
+                            <div class="slider-progress"></div>
+                            <div class="slider-content">
+                                <h5>Sale Offer <span>5% Off</span> This Week</h5>
+                                <h2>Microsoft Surface 5</h2>
+                                <h3>Starting at <span>₹ 1,03,009 </span></h3>
+                                <div class="default-btn slide-btn">
+                                    <a class="links" href="#">Shopping Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Slide Area End Here -->
+                        <!-- Begin Single Slide Area -->
+                        <div class="single-slide align-center-left animation-style-01 bg-3">
+                            <div class="slider-progress"></div>
+                            <div class="slider-content">
+                                <h5>Sale Offer <span>10% Off</span> This Week</h5>
+                                <h2>Apple MacBook Pro</h2>
+                                <h3>Starting at <span>₹ 1,17,999</span></h3>
+                                <div class="default-btn slide-btn">
+                                    <a class="links" href="#">Shopping Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Slide Area End Here -->
+                        <!-- Begin Single Slide Area -->
+                        <div class="single-slide align-center-left animation-style-01 bg-4">
+                            <div class="slider-progress"></div>
+                            <div class="slider-content">
+                                <h5>Sale Offer <span>4% Off</span> This Week</h5>
+                                <h2>Apple iPhone Pro Max</h2>
+                                <h3>Starting at <span>₹ 1,43,990</span></h3>
+                                <div class="default-btn slide-btn">
+                                    <a class="links" href="#">Shopping Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Slide Area End Here -->
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Area End Here -->
+            <!-- Begin Li Banner Area -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="li-banner">
+                    <a href="#">
+                        <img src="images/banner/1_1.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="li-banner mt-15 mt-sm-30 mt-xs-30">
+                    <a href="#">
+                        <img src="images/banner/1_2.jpg" alt="" style="height: 229px" />
+                    </a>
+                </div>
+            </div>
+            <!-- Li Banner Area End Here -->
+        </div>
+    </div>
+</div>
+<!-- Slider With Banner Area End Here -->
+<!-- Begin Product Area -->
+<div class="product-area pt-60 pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="li-product-tab">
+                    <ul class="nav li-product-menu">
+                        {{#if newArrivals}}
+                        <li><a class="active" data-toggle="tab" href="#li-new-product"><span>New Arrival</span></a></li>
+                        {{else}}
+                        <li><a class="active" data-toggle="tab" href="#li-mobiles"><span>New Arrival</span></a></li>
+                        {{/if}}
+                        {{#if bestSellers}}
+                        <li><a data-toggle="tab" href="#li-bestseller-product"><span>Bestseller</span></a></li>
+                        {{/if}}
+                        {{!-- <li><a data-toggle="tab" href="#li-featured-product"><span>Featured Products</span></a></li> --}}
+                    </ul>
+                </div>
+                <!-- Begin Li's Tab Menu Content Area -->
+            </div>
+        </div>
+        <div class="tab-content">
+            {{#if newArrivals}}
+            <div id="li-new-product" class="tab-pane active show" role="tabpanel">
+                <div class="row">
+                    <div class="product-active owl-carousel">
+                    {{#each newArrivals}}
+                        <div class="col-lg-12">
+                            <!-- single-product-wrap start -->
+                            <div class="single-product-wrap">
+                                <div class="product-image">
+                                    <a href="/single-product/{{this._id}}">
+                                        <img style="height:170px;" src="/images/product/{{this.category}}/{{this._id}}/0.jpg" alt="Li's Product Image" />
+                                    </a>
+                                    <span class="sticker">New</span>
+                                </div>
+                                <div class="product_desc">
+                                    <div class="product_desc_info">
+                                        <div class="product-review">
+                                            <h5 class="manufacturer">
+                                                <a>{{this.manufacture}}</a>
+                                            </h5>
+                                            <div class="rating-box">
+                                                <p>{{this.rating}}</p>
+                                            </div>
+                                        </div>
+                                        <h4><a class="product_name" href="/single-product/{{this._id}}">{{this.name}}</a></h4>
+                                        <div class="price-box">
+                                            <span class="new-price">₹ {{this.price}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="add-actions">
+                                        <ul class="add-actions-link">
+                                            <li class="add-cart active"><a onclick="addToCart('{{this._id}}','{{this.name}}')">Add to cart</a></li>
+                                            <li><a class="links-details" onclick="addToList('{{this._id}}','{{this.name}}')"><i
+                                                        class="fa fa-heart-o"
+                                                    ></i></a></li>
+                                            <li><a
+                                                    {{!-- href="#" --}}
+                                                    title="quick view"
+                                                    class="quick-view-btn"
+                                                    {{!-- data-toggle="modal"
+                                                    data-target="#exampleModalCenter" --}}
+                                                    onclick="openmodal('{{this._id}}')"
+                                                ><i class="fa fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-product-wrap end -->
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div id="li-mobiles" class="tab-pane active show" role="tabpanel">
+                <div class="row">
+                    <div class="product-active owl-carousel">
+                    {{#each mobiles}}
+                        <div class="col-lg-12">
+                            <!-- single-product-wrap start -->
+                            <div class="single-product-wrap">
+                                <div class="product-image">
+                                    <a href="/single-product/{{this._id}}">
+                                        <img style="height:170px;" src="/images/product/{{this.category}}/{{this._id}}/0.jpg" alt="Li's Product Image" />
+                                    </a>
+                                    <span class="sticker">New</span>
+                                </div>
+                                <div class="product_desc">
+                                    <div class="product_desc_info">
+                                        <div class="product-review">
+                                            <h5 class="manufacturer">
+                                                <a>{{this.manufacture}}</a>
+                                            </h5>
+                                            <div class="rating-box">
+                                                <p>{{this.rating}}</p>
+                                            </div>
+                                        </div>
+                                        <h4><a class="product_name" href="/single-product/{{this._id}}">{{this.name}}</a></h4>
+                                        <div class="price-box">
+                                            <span class="new-price">₹ {{this.price}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="add-actions">
+                                        <ul class="add-actions-link">
+                                            <li class="add-cart active"><a onclick="addToCart('{{this._id}}','{{this.name}}')">Add to cart</a></li>
+                                            <li><a class="links-details" onclick="addToList('{{this._id}}','{{this.name}}')"><i
+                                                        class="fa fa-heart-o"
+                                                    ></i></a></li>
+                                            <li><a
+                                                    {{!-- href="#" --}}
+                                                    title="quick view"
+                                                    class="quick-view-btn"
+                                                    {{!-- data-toggle="modal"
+                                                    data-target="#exampleModalCenter" --}}
+                                                    onclick="openmodal('{{this._id}}')"
+                                                ><i class="fa fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-product-wrap end -->
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            <div id="li-bestseller-product" class="tab-pane" role="tabpanel">
+                <div class="row">
+                    <div class="product-active owl-carousel">
+                    {{#each bestSellers}}
+                        <div class="col-lg-12">
+                            <!-- single-product-wrap start -->
+                            <div class="single-product-wrap">
+                                <div class="product-image">
+                                    <a href="/single-product/{{this._id}}">
+                                        <img style="height:170px;" src="/images/product/{{this.category}}/{{this._id}}/0.jpg" alt="Li's Product Image" />
+                                    </a>
+                                </div>
+                                <div class="product_desc">
+                                    <div class="product_desc_info">
+                                        <div class="product-review">
+                                            <h5 class="manufacturer">
+                                                <a>{{this.manufacture}}</a>
+                                            </h5>
+                                            <div class="rating-box">
+                                                <p>{{this.rating}}</p>
+                                            </div>
+                                        </div>
+                                        <h4><a class="product_name" href="/single-product/{{this._id}}">{{this.name}}</a></h4>
+                                        <div class="price-box">
+                                            <span class="new-price">₹ {{this.price}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="add-actions">
+                                        <ul class="add-actions-link">
+                                            <li class="add-cart active"><a onclick="addToCart('{{this._id}}','{{this.name}}')">Add to cart</a></li>
+                                            <li><a class="links-details" onclick="addToList('{{this._id}}','{{this.name}}')"><i
+                                                        class="fa fa-heart-o"
+                                                    ></i></a></li>
+                                            <li><a
+                                                    {{!-- href="#" --}}
+                                                    title="quick view"
+                                                    class="quick-view-btn"
+                                                    {{!-- data-toggle="modal"
+                                                    data-target="#exampleModalCenter" --}}
+                                                    onclick="openmodal('{{this._id}}')"
+                                                ><i class="fa fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-product-wrap end -->
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div id="li-featured-product" class="tab-pane" role="tabpanel">
+                <div class="row">
+                    {{! loop }}
+                    <div class="product-active owl-carousel">
+                        <div class="col-lg-12">
+                            <!-- single-product-wrap start -->
+                            <div class="single-product-wrap">
+                                <div class="product-image">
+                                    <a href="single-product.html">
+                                        <img src="images/product/large-size/3.jpg" alt="Li's Product Image" />
+                                    </a>
+                                    <span class="sticker">New</span>
+                                </div>
+                                <div class="product_desc">
+                                    <div class="product_desc_info">
+                                        <div class="product-review">
+                                            <h5 class="manufacturer">
+                                                <a href="shop-left-sidebar.html">Graphic Corner</a>
+                                            </h5>
+                                            <div class="rating-box">
+                                                <p>4.5</p>
+                                            </div>
+                                        </div>
+                                        <h4><a class="product_name" href="single-product.html">Accusantium dolorem1</a></h4>
+                                        <div class="price-box">
+                                            <span class="new-price">$46.80</span>
+                                        </div>
+                                    </div>
+                                    <div class="add-actions">
+                                        <ul class="add-actions-link">
+                                            <li class="add-cart active"><a onclick="addToCart('{{this._id}}','{{this.name}}')">Add to cart</a></li>
+                                            <li><a class="links-details" href="wishlist.html"><i
+                                                        class="fa fa-heart-o"
+                                                    ></i></a></li>
+                                            <li><a
+                                                    href="#"
+                                                    title="quick view"
+                                                    {{!-- class="quick-view-btn"
+                                                    data-toggle="modal"
+                                                    data-target="#exampleModalCenter" --}}
+                                                    onclick="openmodal('{{this._id}}')"
+                                                ><i class="fa fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-product-wrap end -->
+                        </div>
+                        {{! loop ends }}
+                    </div>
+                </div>
+            </div>
+            {{! New arrivals end here }}
+        </div>
+    </div>
+</div>
+<!-- Product Area End Here -->
+<!-- Begin Li's Static Banner Area -->
+<div class="li-static-banner">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Single Banner Area -->
+            <div class="col-lg-4 col-md-4 text-center">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="images/banner/1_3.jpg" alt="Li's Static Banner" />
+                    </a>
+                </div>
+            </div>
+            <!-- Single Banner Area End Here -->
+            <!-- Begin Single Banner Area -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="images/banner/1_4.jpg" alt="Li's Static Banner" style="height: 229px;" />
+                    </a>
+                </div>
+            </div>
+            <!-- Single Banner Area End Here -->
+            <!-- Begin Single Banner Area -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="images/banner/1_5.jpg" alt="Li's Static Banner" style="height: 229px;" />
+                    </a>
+                </div>
+            </div>
+            <!-- Single Banner Area End Here -->
+        </div>
+    </div>
+</div>
+<!-- Li's Static Banner Area End Here -->
+<!-- Begin Li's Laptop Product Area -->
+<section class="product-area li-laptop-product pt-60 pb-45">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Li's Section Area -->
+            <div class="col-lg-12">
+                <div class="li-section-title">
+                    <h2>
+                        <span>Laptops</span>
+                    </h2>
+                    <ul class="li-sub-category-list">
+                        <li class="active"><a href="#">Apple</a></li>
+                        <li><a href="#">Dell</a></li>
+                        <li><a href="#">Microsoft</a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="product-active owl-carousel">
+                        {{! loop }}
+                        {{#each laptops}}
+                            <div class="col-lg-12">
+                                <!-- single-product-wrap start -->
+                                <div class="single-product-wrap">
+                                    <div class="product-image">
+                                        <a href="/single-product/{{this._id}}">
+                                            <img
+                                                src="/images/product/{{this.category}}/{{this._id}}/0.jpg"
+                                                alt="Li's Product Image"
+                                            />
+                                        </a>
+                                    </div>
+                                    <div class="product_desc">
+                                        <div class="product_desc_info">
+                                            <div class="product-review">
+                                                <h5 class="manufacturer">
+                                                    <a >{{this.manufacture}}</a>
+                                                </h5>
+                                                <div class="rating-box">
+                                                    <p>{{this.rating}}</p>
+                                                </div>
+                                            </div>
+                                            <h4><a class="product_name" href="/single-product/{{this._id}}">{{this.name}}...</a></h4>
+                                            <div class="price-box">
+                                                <span class="new-price">₹ {{this.price}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="add-actions">
+                                            <ul class="add-actions-link">
+                                                <li class="add-cart active"><a onclick="addToCart('{{this._id}}','{{this.name}}')">Add to cart</a></li>
+                                                <li><a class="links-details" onclick="addToList('{{this._id}}','{{this.name}}')" ><i
+                                                            class="fa fa-heart-o"
+                                                        ></i></a></li>
+                                                <li><a
+                                                        {{!-- href="#" --}}
+                                                        title="quick view"
+                                                        class="quick-view-btn modal-trigger"
+                                                        onclick="openmodal('{{this._id}}')"
+                                                    ><i class="fa fa-eye"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- single-product-wrap end -->
+                            </div>
+                        {{/each}}
+                        {{! loop ends }}
+                    </div>
+                </div>
+            </div>
+            <!-- Li's Section Area End Here -->
+        </div>
+    </div>
+</section>
+<!-- Li's Laptop Product Area End Here -->
+<!-- Begin Li's Static Banner Area -->
+<div class="li-static-banner">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Single Banner Area -->
+            <div class="col-lg-4 col-md-4 text-center">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="images/banner/1_3.jpg" alt="Li's Static Banner" />
+                    </a>
+                </div>
+            </div>
+            <!-- Single Banner Area End Here -->
+            <!-- Begin Single Banner Area -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="images/banner/1_4.jpg" alt="Li's Static Banner" style="height: 229px;" />
+                    </a>
+                </div>
+            </div>
+            <!-- Single Banner Area End Here -->
+            <!-- Begin Single Banner Area -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="images/banner/1_5.jpg" alt="Li's Static Banner" style="height: 229px;" />
+                    </a>
+                </div>
+            </div>
+            <!-- Single Banner Area End Here -->
+        </div>
+    </div>
+</div>
+<!-- Li's Static Banner Area End Here -->
+</div>
+

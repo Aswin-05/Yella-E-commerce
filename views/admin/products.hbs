@@ -1,0 +1,69 @@
+<section>
+    <div class="container">
+        <div class="col mt-4 mt-7" style="margin-bottom: 20px;">
+            <a href="/admin/add-product" class="btn btn-outline-warning ml-auto ">Add Product</a>
+        </div>
+        <table class="table mt-5" id="productstable" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Key Features</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Options</th>
+                    <th scope="col">Add To</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <th scope="row">#</th>
+                    <td style="width: 250px;">{{this.name}}</td>
+                    <td>{{this.category}}</td>
+                    <td style="width: 200px;">
+                        {{#each this.key_features}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </td>
+                    <td style="width: 300px;">{{this.description}}</td>
+                    <td style="width: 80px;"><img style="width: 50px;height: 50px;"
+                            src="/images/product/{{category}}/{{this._id}}/0.jpg" alt="" />
+                        <img style="width: 50px;height: 50px;" src="/images/product/{{category}}/{{this._id}}/1.jpg"
+                            alt="" />
+                        <img style="width: 50px;height: 50px;" src="/images/product/{{category}}/{{this._id}}/2.jpg"
+                            alt="" />
+                        <img style="width: 50px;height: 50px;" src="/images/product/{{category}}/{{this._id}}/3.jpg"
+                            alt="" />
+                        <img style="width: 50px;height: 50px;" src="/images/product/{{category}}/{{this._id}}/4.jpg"
+                            alt="" />
+                    </td>
+                    <td style="width: 80px;">
+                        <a href="/admin/edit-product/{{this._id}}" class="btn btn-outline-primary btn-sm">Edit</a>
+                        <a href="/admin/delete-product/{{this._id}}" class="btn btn-outline-danger btn-sm mt-3"
+                            onclick="return confirm('Want to delete {{this.name}}?')">Delete</a>
+                    </td>
+                    <td style="width: 80px;">
+                        <a href="/admin/best-seller/{{this._id}}" class="btn btn-outline-info btn-sm">Best Seller</a>
+                        <a href="/admin/new-arrivals/{{this._id}}" class="btn btn-outline-info mt-3 btn-sm">New Arival</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<script>
+    new DataTable('#productstable', {
+        autoWidth: false,
+        columnDefs: [
+            {
+                targets: ['_all'],
+                className: 'mdc-data-table__cell',
+            },
+        ],
+    });
+</script>

@@ -1,0 +1,209 @@
+<style>
+    .wish{ color: #a4a4a4 !important; transition: 0.3s ease-in-out !important; transition: 0s !important; } .wish:hover{
+    color: #fed700 !important; cursor: pointer !important; } .wish:focus, .wish:hover { color: #fed700 !important;
+    text-decoration: none !important; }
+</style>
+
+<!-- Begin Li's Breadcrumb Area -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li class="active">{{details.category}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!-- Begin Li's Content Wraper Area -->
+<div class="content-wraper pt-60 pb-60 pt-sm-30 pt-xs-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 order-2 order-lg-1 order-sm-1">
+                {{#if searchProducts}}
+                    <!-- shop-top-bar start -->
+                    <div class="shop-top-bar mt-30">
+                        <div class="shop-bar-inner">
+                            <div class="product-view-mode">
+                                <!-- shop-item-filter-list start -->
+                                <ul class="nav shop-item-filter-list" role="tablist">
+                                    <li class="active" role="presentation"><a
+                                            aria-selected="true"
+                                            class="active show"
+                                            data-toggle="tab"
+                                            role="tab"
+                                            aria-controls="grid-view"
+                                            href="#grid-view"
+                                        ><i class="fa fa-th"></i></a></li>
+                                    <li role="presentation"><a
+                                            data-toggle="tab"
+                                            role="tab"
+                                            aria-controls="list-view"
+                                            href="#list-view"
+                                        ><i class="fa fa-th-list"></i></a></li>
+                                </ul>
+                                <!-- shop-item-filter-list end -->
+                            </div>
+                            <div class="toolbar-amount text-muted">
+                                <span>Search Results {{details.length}} Items</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- shop-top-bar end -->
+                    <!-- shop-products-wrapper start -->
+                    <div class="shop-products-wrapper">
+                        <div class="tab-content">
+                            <div id="grid-view" class="tab-pane fade active show" role="tabpanel">
+                                <div class="product-area shop-product-area">
+                                    <div class="row">
+                                        {{#each searchProducts}}
+                                            <div class="col-lg-3 col-md-3 col-sm-6 mt-40">
+                                                <!-- single-product-wrap start -->
+                                                <div class="single-product-wrap">
+                                                    <div class="product-image">
+                                                        <a href="/single-product/{{this._id}}">
+                                                            <img
+                                                                src="/images/product/{{this.category}}/{{this._id}}/0.jpg"
+                                                                alt="Li's Product Image"
+                                                            />
+                                                        </a>
+                                                        {{! <span class="sticker">New</span> }}
+                                                    </div>
+                                                    <div class="product_desc">
+                                                        <div class="product_desc_info">
+                                                            <div class="product-review">
+                                                                <h5 class="manufacturer">
+                                                                    <a>{{this.manufacture}}</a>
+                                                                </h5>
+                                                                <div class="rating-box">
+                                                                    <ul class="rating">
+                                                                        <p>{{this.rating}}</p>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <h4><a
+                                                                    class="product_name"
+                                                                    href="/single-product/{{this._id}}"
+                                                                >{{this.name}}...</a></h4>
+                                                            <div class="price-box">
+                                                                <span class="new-price">₹ {{this.price}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-actions">
+                                                            <ul class="add-actions-link">
+                                                                <li class="add-cart active"><a
+                                                                        onclick="addToCart('{{this._id}}','{{this.category}}')"
+                                                                    >Add to cart</a></li>
+                                                                <li><a title="quick view" class="quick-view-btn" onclick="openmodal('{{this._id}}')"><i class="fa fa-eye"></i></a></li>
+                                                                <li><a
+                                                                        class="links-details"
+                                                                        onclick="addToList('{{this._id}}','{{this.category}}')"
+                                                                    ><i class="fa fa-heart-o"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- single-product-wrap end -->
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="list-view" class="tab-pane fade product-list-view" role="tabpanel">
+                                <div class="row">
+                                    <div class="col">
+                                        {{#each searchProducts}}
+                                            <div class="row product-layout-list">
+                                                <div class="col-lg-3 col-md-5">
+                                                    <div class="product-image">
+                                                        <a href="/single-product/{{this._id}}">
+                                                            <img
+                                                                src="/images/product/{{this.category}}/{{this._id}}/0.jpg"
+                                                                alt="Li's Product Image"
+                                                            />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 col-md-7">
+                                                    <div class="product_desc">
+                                                        <div class="product_desc_info">
+                                                            <div class="product-review">
+                                                                <h5 class="manufacturer">
+                                                                    <a>{{this.manufacture}}</a>
+                                                                </h5>
+                                                                <div class="rating-box">
+                                                                    <ul class="rating">
+                                                                        <p>{{this.rating}}</p>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <h4><a
+                                                                    class="product_name"
+                                                                    href="/single-product/{{this._id}}"
+                                                                >{{this.name}}...</a></h4>
+                                                            <div class="price-box">
+                                                                <span class="new-price">₹ {{this.price}}</span>
+                                                            </div>
+                                                            <div class="keyfeature text-muted">
+                                                                <label>Key Features</label>
+                                                                <ul>
+                                                                    {{#each this.key_features}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="shop-add-action mb-xs-30">
+                                                        <ul class="add-actions-link">
+                                                            <li class="add-cart"><a
+                                                                    onclick="addToCart('{{this._id}}','{{this.category}}')"
+                                                                    style="cursor: pointer;"
+                                                                >Add to cart</a></li>
+                                                            <li class="wishlist wish"><a
+                                                                    onclick="addToList('{{this._id}}','{{this.category}}')"
+                                                                ><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
+                                                            {{! <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" href="#"><i class="fa fa-eye"></i>Quick view</a></li> }}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- shop-products-wrapper end -->
+                {{else}}
+                      <div class="toolbar-amount text-muted">
+                          <span>No Results Found..</span>
+                      </div>
+                {{/if}}
+            </div>
+            {{!-- category sub menu --}}
+        </div>
+    </div>
+</div>
+<!-- Content Wraper Area End Here -->
+
+{{!-- <div class="col-lg-3 order-1 order-lg-2">
+
+                <!-- category-sub-menu start -->
+                <div class="sidebar-categores-box mb-sm-0 mb-xs-0">
+                    <div class="sidebar-title">
+                        <h2>{{details.category}}</h2>
+                    </div>
+                    <div class="category-tags">
+                        <ul>
+                            {{#each products}}
+                                <li><a href="# ">{{this.manufacture}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <!-- category-sub-menu end -->
+                </div>
+            </div> --}}

@@ -1,0 +1,134 @@
+<style>
+    .table-row {
+        padding: 5px;
+    }
+</style>
+
+<section>
+    <div class="container">
+        <table class="table mt-5" id="productstable" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Products</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Order Status</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orders}}
+                <tr class="table-row">
+                    <th scope="row">#{{this._id}}</th>
+                    <td>
+                        <table style="border: none;">
+                            {{#each this.products}}
+                            {{#each this.products}}
+                            <tr>
+                                <td style="border: none;">{{this.name}}</td>
+                            </tr>
+                            {{/each}}
+                            {{/each}}
+                        </table>
+                    </td>
+                    <td>
+                        <table style="border: none;">
+                            {{#each this.products}}
+                            <tr >
+                                <td style="border: none;">{{this.quantity}}</td>
+                            </tr>
+                            {{/each}}
+                        </table>
+                    </td>
+                    <td>
+                        <table style="border: none;">
+                        {{#each this.products}}
+                        {{#each this.products}}
+                        <tr>
+                            <td style="border: none;"><img style="width: 50px;height: 50px;"
+                                    src="/images/product/{{this.category}}/{{this._id}}/0.jpg" alt="" />
+                            </td>
+                        </tr>
+                        {{/each}}
+                        {{/each}}
+                    </table>
+                    </td>
+                    <td>
+                        <table style="border: none;">
+                            <tr>
+                                <td style="border: none;">{{this.deliveryDetails.flatNumber}},
+                                    {{this.deliveryDetails.area}}</td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">{{this.deliveryDetails.landmark}},
+                                    {{this.deliveryDetails.pincode}}</td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">{{this.deliveryDetails.district}},
+                                    {{this.deliveryDetails.state}}</td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">{{this.deliveryDetails.phone}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>{{this.orderStatus}}</td>
+                    <td>{{this.date}}</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td style="border: none;">
+                                    <a href=""
+                                        class="btn btn-outline-info btn-sm mt-3"
+                                        onclick="changeStatus('Order Shipped','{{this._id}}')"
+                                        >Ship</a>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td style="border: none;">
+                                    <a href=""
+                                        class="btn btn-outline-info btn-sm mt-3"
+                                        onclick="changeStatus('In Transit','{{this._id}}')"
+                                        >In Transit</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">
+                                    <a href=""
+                                        class="btn btn-outline-info btn-sm mt-3"
+                                        onclick="changeStatus('Out For Delivery','{{this._id}}')"
+                                        >Out For Delivery</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">
+                                    <a href=""
+                                        class="btn btn-outline-success btn-sm mt-3"
+                                        onclick="changeStatus('Delivered','{{this._id}}')"
+                                        >Deliverd</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<script>
+    new DataTable('#productstable', {
+        autoWidth: false,
+        columnDefs: [
+            {
+                targets: ['_all'],
+                className: 'mdc-data-table__cell',
+            },
+        ],
+    });
+</script>

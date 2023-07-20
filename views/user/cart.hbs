@@ -1,0 +1,125 @@
+<style>
+    #onhover{
+        font-weight:500 ;
+    }
+    #onhover:hover{
+        color: white !important;
+    }
+</style>
+
+<!-- Begin Li's Breadcrumb Area -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="active">Shopping Cart</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!--Shopping Cart Area Strat-->
+<div class="Shopping-cart-area pt-60 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-12" id="main-cartpage">
+                {{#if user}}
+                    {{#if products}}
+                        <form action="#">
+                            <div class="table-content table-responsive">
+                                <table class="table" style="border:none">
+                                    <thead>
+                                        <tr>
+                                            <th class="li-product-remove">Remove</th>
+                                            <th class="li-product-thumbnail">Image</th>
+                                            <th class="cart-product-name">Product</th>
+                                            <th class="li-product-price">Unit Price</th>
+                                            <th class="li-product-quantity">Quantity</th>
+                                            <th class="li-product-subtotal">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="shop-cart">
+                                        {{#each products}}
+                                        <tr>
+                                            <td style="border:none;cursor: pointer;" class="li-product-remove"><a ><i
+                                                        class="fa fa-trash"
+                                                        style="font-size: large;"
+                                                        onclick="removeCartItem('{{../user._id}}','{{this._id}}')"
+                                                    ></i></a></td>
+                                            <td style="border:none" class="li-product-thumbnail"><a href="/single-product/{{this._id}}"><img
+                                                        src="/images/product/{{this.category}}/{{this._id}}/0.jpg"
+                                                        alt="Li's Product Image"
+                                                        style="height:90px;"
+                                                    /></a></td>
+                                            <td style="border:none" class="li-product-name"><a href="/single-product/{{this._id}}">{{this.name}}</a></td>
+                                            <td style="border:none" class="li-product-price"><span
+                                                    class="amount"
+                                                >₹ {{this.price}}</span></td>
+                                            <td style="border:none" class="quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="{{this.quantity}}" type="text" id="{{this._id}}"/>
+                                                    <div class="dec qtybutton" onclick="changeQty('{{../user._id}}','{{this._id}}',-1)" ><i class="fa fa-angle-down"></i></div>
+                                                    <div class="inc qtybutton" onclick="changeQty('{{../user._id}}','{{this._id}}',1)"><i class="fa fa-angle-up"></i></div>
+                                                </div>
+                                            </td>
+                                            <td style="border:none" class="product-subtotal"><span
+                                                    class="amount"
+                                                >₹ {{this.prodPrice}}</span></td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                                <hr />
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="coupon-all">
+                                        <div class="coupon">
+                                            <input
+                                                id="coupon_code"
+                                                class="input-text"
+                                                name="coupon_code"
+                                                value=""
+                                                placeholder="Coupon code"
+                                                type="text"
+                                            />
+                                            <input class="button" name="apply_coupon" value="Apply coupon" type="submit" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 ml-auto">
+                                    <div class="cart-page-total">
+                                        <h2>Cart totals</h2>
+                                        <ul>
+                                            <li>Subtotal <span class="cart-total">₹ {{totalAmount}}</span></li>
+                                            <li>Coupon <span>₹ 00.00</span></li>
+                                            <li>Total <span class="cart-total">₹ {{totalAmount}}</span></li>
+                                        </ul>
+                                        <a href="/checkout">Proceed to checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    {{else}}
+                        <div class="container" style="text-align: center;margin:60px 0 80px;">
+                            <h1 style="font-size: 24px; ">Your Cart</h1>
+                            <p style="font-size:18px;">Your cart is empty.</p>
+                            <i style="font-size: 90px;" class="bi bi-cart4"></i>
+                        </div>
+                    {{/if}}
+                {{else}}
+                    <div class="container" style="text-align: center;margin-bottom:80px;">
+                        <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/mywishlist-empty_39f7a5.png" alt="" style="width: 300px;height: 200px;" />
+                        <h1 style="font-size: 24px;margin-top: 8px;">Missing Cart items?</h1>
+                        <p style="font-size:18px;">Login to see the items you added previously.</p>
+                        {{!-- <a href="/login-register" class="btn btn-md btn-outline-warning text-warning" id="onhover">Login</a> --}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+<!--Shopping Cart Area End-->
